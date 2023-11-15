@@ -1,0 +1,14 @@
+
+<% @shops[2].text.to_i.times do |i| %>
+  <h2>店名：<%= @shops[i+4].children[1].text %></h2>
+  <p>住所：<%= @shops[i+4].children[4].text %></p>
+  <p>画像：<%= image_tag(@shops[i+4].children[22].text.scan(/https?:\/\/\S+?\.jpg/)[1]) %></p>
+  <p>店舗URL：<%= link_to "店舗情報へ", @shops[i+4].children[21].text %></p>
+  <p>店舗ロゴ：<%= image_tag(@image_url[i]) %></p>
+<% end %>
+
+<p><%= @shops[2].text %>件表示</p>
+
+<% 52.times do |i| %>
+  <p><%= "#{i}：" + @shops[5].children[i].name %></p>
+<% end %>
