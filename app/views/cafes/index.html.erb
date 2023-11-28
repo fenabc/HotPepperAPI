@@ -1,0 +1,64 @@
+<h1 class="display-4 text-primary" >cafes#index</h1>
+
+<%= form_with url: search_cafes_path, method: :get, local: true do |f| %>
+  <div class='form-group'>
+    <%= f.label :keyword, "キーワード", class: 'display-8 text-primary' %>
+    <%= f.text_field :keyword, class: 'form-control' %>
+    <div class="accordions">
+      <details class="accordion-001">
+        <summary>関東</summary>
+        <% @prefectures[0..6].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>関西</summary>
+        <% @prefectures[7..12].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>東海</summary>
+        <% @prefectures[13..16].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>北海道</summary>
+        <label><%= @prefectures[17].name %><%= f.radio_button :large_area, @prefectures[17].code %></label>
+      </details>
+      <details class="accordion-001">
+        <summary>東北</summary>
+        <% @prefectures[18..23].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>北陸・甲信越</summary>
+        <% @prefectures[24..29].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>中国</summary>
+        <% @prefectures[30..34].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>四国</summary>
+        <% @prefectures[35..39].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>九州・沖縄</summary>
+        <% @prefectures[40..47].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.code %></label>
+        <% end %>
+      </details>
+    </div>
+    <%= f.submit "検索", class: 'primary' %>
+  </div>
+
+<% end %>

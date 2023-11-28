@@ -6,20 +6,17 @@ class ShopsController < ApplicationController
     service = HotpepperService.new('64021912cf2b3b35')
   end
 
-  # def search
-  #   service = HotpepperService.new('64021912cf2b3b35')
-  #   @shops = service.search_shops(params[:keyword])['results']['shop']
-  #   render :search_result
-  # end
-
   def show
     # APIエンドポイントのURIを決定
     uri = URI.parse('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/')
     uri.query = URI.encode_www_form({
       key: '64021912cf2b3b35',
       keyword: params[:keyword],
+      # large_area: params[:large_area],
+      # range: params[:range],
+      # lat: params[:lat],
+      # lon: params[:lon],
       # id: params[:id],
-      # large_area: 'Z011',
       format: 'xml'
     })
 
@@ -53,7 +50,7 @@ class ShopsController < ApplicationController
     @shops[2].text.to_i.times do |i|
       @image_url.push(@shops[i+4].children[2].text)
     end
-    
+
     # -- @shopsのindex --
     # 0 version
     # 1 result_available

@@ -1,0 +1,12 @@
+<h1 class="display-4 text-primary" >cafes#index</h1>
+<% if @shops.present? %>
+  <% @shops.each do |shop| %>
+    <h2>店名：<%= shop["name"] %></h2>
+    <p>住所：<%= shop["address"] %></p>
+    <p>画像：<%= image_tag(shop["photo"]["pc"]["m"]) %></p>
+    <p>店舗URL：<%= link_to "店舗情報へ", shop["urls"]["pc"] %></p>
+    <p>店舗ロゴ：<%= image_tag(shop["logo_image"]) %></p>
+  <% end %>
+<% else %>
+  <h1>あぁ、、その検索結果は見つかりませんでした。</h1>
+<% end %>
