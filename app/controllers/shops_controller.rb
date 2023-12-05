@@ -3,14 +3,14 @@ require 'uri'
 
 class ShopsController < ApplicationController
   def index
-    service = HotpepperService.new('64021912cf2b3b35')
+    service = HotpepperService.new('YOUR API KEY')
   end
 
   def show
     # APIエンドポイントのURIを決定
     uri = URI.parse('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/')
     uri.query = URI.encode_www_form({
-      key: '64021912cf2b3b35',
+      key: 'YOUR API KEY',
       keyword: params[:keyword],
       # large_area: params[:large_area],
       # range: params[:range],
@@ -120,7 +120,7 @@ class ShopsController < ApplicationController
   end
 
   # def show
-  #   service = HotpepperService.new('64021912cf2b3b35')
+  #   service = HotpepperService.new('YOUR API KEY')
   #   @shops = service.search_shops(params[:keyword])['results']['shop']
   #   p @shops
   #   render :search_result
