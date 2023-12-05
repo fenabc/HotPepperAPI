@@ -6,7 +6,7 @@ class CafesController < ApplicationController
 
   def index
     @prefectures = Prefecture.all
-    service = HotpepperService.new('64021912cf2b3b35')
+    service = HotpepperService.new('YOUR API KEY')
     # binding.pry
   end
 
@@ -14,7 +14,7 @@ class CafesController < ApplicationController
     # APIエンドポイントのURIを決定
     uri = URI.parse('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/')
     uri.query = URI.encode_www_form({
-      key: '64021912cf2b3b35',
+      key: 'YOUR API KEY',
       lat: 35.4622429,
       lng: 133.0664864,
       range: 3,
